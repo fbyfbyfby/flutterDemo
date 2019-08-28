@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_demo/util/ScreenUtils.dart';
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new HomePageWidget(),
+    );
+  }
+}
+
+class HomePageWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     final appName = "艺是发票助手";
-    MediaQueryData mediaQuery = MediaQueryData.fromWindow(ui.window);
-    var w = mediaQuery.size.width; //屏幕宽度
-    var h = mediaQuery.size.height; //屏幕高度
     const name1 = '艺是网络科技有限公司';
     const num1 = '91330901MA28K4AA3H';
     const name2 = '杭州艺事网络科技有限公司';
     const num2 = '91330102MA2804C80K';
+    var w = ScreenUtils.screenW(context);
+    var h = ScreenUtils.screenH(context);
     return new MaterialApp(
       title: appName,
       home: new Scaffold(
@@ -27,7 +35,6 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new Container(
-              padding: EdgeInsets.all(15),
               height: 0.35 * h,
               width: 0.8 * w,
               decoration: BoxDecoration(
@@ -44,7 +51,7 @@ class MyApp extends StatelessWidget {
                     const BorderRadius.all(const Radius.circular(8.0)),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
                     name1,
@@ -68,10 +75,9 @@ class MyApp extends StatelessWidget {
                     },
                     child: new Text(
                       "复制抬头",
-                      style: TextStyle(fontSize: 20,color: Colors.white),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
-                  Container(height: 20),
                   Text(
                     num1,
                     textAlign: TextAlign.left,
@@ -94,14 +100,13 @@ class MyApp extends StatelessWidget {
                     },
                     child: new Text(
                       "复制税号",
-                      style: TextStyle(fontSize: 20,color: Colors.white),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   )
                 ],
               ),
             ),
             new Container(
-              padding: EdgeInsets.all(15),
               height: 0.35 * h,
               width: 0.8 * w,
               decoration: BoxDecoration(
@@ -118,7 +123,7 @@ class MyApp extends StatelessWidget {
                     const BorderRadius.all(const Radius.circular(8.0)),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
                     name2,
@@ -142,10 +147,9 @@ class MyApp extends StatelessWidget {
                     },
                     child: new Text(
                       "复制抬头",
-                      style: TextStyle(fontSize: 20,color: Colors.amber),
+                      style: TextStyle(fontSize: 20, color: Colors.amber),
                     ),
                   ),
-                  Container(height: 20),
                   Text(
                     num2,
                     textAlign: TextAlign.left,
@@ -168,7 +172,7 @@ class MyApp extends StatelessWidget {
                     },
                     child: new Text(
                       "复制税号",
-                      style: TextStyle(fontSize: 20,color: Colors.amber),
+                      style: TextStyle(fontSize: 20, color: Colors.amber),
                     ),
                   )
                 ],
